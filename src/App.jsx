@@ -4,13 +4,16 @@ import ListaDeColores from "./components/ListaDeColores.jsx";
 
 function App() {
 
-  const [misColores, setMisColores] = useState( () => {
-    let coloresGuardados = localStorage.getItem("colores");
-    return ( coloresGuardados ? JSON.parse(coloresGuardados) : [] );
-  });
+  const [misColores, setMisColores] = useState(
+    JSON.parse(localStorage.getItem("colores")) || [] );
 
+  //const [misColores, setMisColores] = useState( () => {
+  //let coloresGuardados = localStorage.getItem("colores");
+  //return ( coloresGuardados ? JSON.parse(coloresGuardados) : [] );
+  //});
+  
   const funcionCargaDeColor = (color) => {
-    setMisColores( (prevColores) => [...prevColores, color] );
+    setMisColores( [...misColores, color] );
   };
 
   const funcionBorrarColor = (color) => {
@@ -30,7 +33,7 @@ function App() {
       <div className="d-flex flex-column">
         <CargaDeColor funcionCargaDeColor={funcionCargaDeColor} />
       </div>
-      <div className="d-flex gap-3 justify-content-start">
+      <div className="d-flex flex-wrap gap-3 justify-content-start">
         <ListaDeColores funcionBorrarColor={funcionBorrarColor} misColores={misColores} />
       </div>
     </section>
