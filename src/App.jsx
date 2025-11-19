@@ -7,19 +7,14 @@ function App() {
   const [misColores, setMisColores] = useState(
     JSON.parse(localStorage.getItem("colores")) || [] );
 
-  //const [misColores, setMisColores] = useState( () => {
-  //let coloresGuardados = localStorage.getItem("colores");
-  //return ( coloresGuardados ? JSON.parse(coloresGuardados) : [] );
-  //});
-  
   const funcionCargaDeColor = (color) => {
     setMisColores( [...misColores, color] );
   };
 
   const funcionBorrarColor = (color) => {
     setMisColores( 
-      misColores.filter( (auxcolor) => {
-        return (auxcolor !== color)
+      misColores.filter( (auxcolor,index) => {
+        return (index != color)
       })
     );
   };

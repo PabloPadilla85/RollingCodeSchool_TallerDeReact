@@ -11,7 +11,7 @@ function ListaDeColores({funcionBorrarColor,misColores}){
                     </div>
                 </div>
                 <div className="d-flex justify-content-end">
-                    <button className="btn btn-danger btn-sm my-2 me-2" type="button" onClick={ () => { funcionBorrarColor(`${auxColor}`) }} >Borrar</button>
+                    <button className="btn btn-danger btn-sm my-2 me-2" type="button" onClick={ () => { funcionBorrarColor(`${indice}`) }} >Borrar</button>
                 </div>
             </div> );
         } )}
